@@ -1,0 +1,9 @@
+/* Custom slick arrow styles */
+
+
+.slick-prev::before, .slick-next::before {
+  color: black; /* Override default grey arrow */
+  font-size: 24px; /* Adjust arrow size if needed */
+}
+
+
