@@ -1,0 +1,24 @@
+Task 1: Dynamic Product Carousel Development
+Didn’t understand the expectations out of the sentence “ showcasing various 3D models of products. ” so asked regarding it. Got an answer that it refers to some sort of GLB,GLTF file, started to search about this file format.
+Searched for what does low poly means and started to look for 3D model as a whole but paused it in the middle as implementation of carousel was more important since the model was supposed to be used inside the carousel card.
+Started looking for ways to make a carousel, firstly used bootstrap (it didn’t seem identical to the one in doc) but the main objective was to implement the basic functionality the tweaking to the appearance could be done later.
+After the carousel was working fine started to look for ways that would help in incorporating the model inside the card. After watching various videos and I chose one (https://www.youtube.com/watch?v=9L4TH8oy7ZY) this used the r3f and r3drei and three library.
+The idea here was to choose any model and a website was provided (https://gltf.pmnd.rs/) that converted the provided 3D model into code.
+Following the tutorial I was able to load the 3d model in the card and 50% of what was required was almost done like the model was there and the carousel was there, even though one at a page but still the core functionality was very much implemented but in the provided doc “Load each model in the carousel using three.js scene” made me think that am I doing it the correct way as “using three.js scene” probably meant something like “scene.add” but I wasn’t doing anything like that so I chose to ask in discord.
+Came to know that r3f is not allowed and I have to use three.js, so dumped the previous code and started working again on it the next day.
+
+Started to think how can I make a carousel because making a static same looking thing is easy but since it has to be dynamic and has to follow transitions therefore started to search regarding it, after watching a few videos I came across a video that seemed relevant(https://www.youtube.com/watch?v=6YnryDjEGr8).
+This video used the react slick library for making a carousel which quite resembled the one shown in the doc except for the fading effect on the left and right card. After watching the video, I easily made the carousel.
+Now was the time to import model inside the cards and for that I saw numerous videos, the basic structure was quite similar in all videos, so I used that basic structure, but the model didn’t show up. 
+Since the model was not showing up following the basic code, so I used Chatgpt that helped in displaying the model with a very little tweaking.Some of the css is by chatgpt and other logic related lines by Chatgpt are represented by a long streak of hashes in the code.
+The model was now visible, but it was all blacked out. It took a quite long time to figure out that why it was black, I was assuming that the model has a bunch of files along with it maybe that is not being loaded properly causing blacked out object.
+I was assuming that this is the only problem that the textures are not being loaded properly or the other files with it that is why I was just searching regarding how to load textures in a gltf file. I came to know that there’s no need to explicitly load something in the gltf file, it automatically uses the required resources.
+Now I realized that the problem was somewhere else, so I started to search on my general problem that how to fix a blacked out model and it turned out that there were no lights added in the scene making the model black so I added lights and my problem was fixed.
+Now I was thinking whether to allow orbitControls or not, since the doc had no such requirement, and it’d make a confusion since I had to make a popup when the card is clicked so this confusion in the mouseclicks could be a problem later on so I dropped this idea.
+Now I was left with smaller problems like the model was quite small which was resolved my moving the camera closer. Now my carousel had 3d objects but all of them were the same.
+Now I was thinking of how to add other models one way was to make a separate model file for each model which was very inefficient. I knew there is a way but I couldn’t recall it so I told chatgpt all of this scenario and asked for a suggestion and I was told to use props.
+The idea was to retrieve the model path as each model was in the public directory within a folder named on its model. So now when using the model component, I was supposed to pass the path so that I’d be able to load the specific model that I want to be displayed in the particular card.
+Now was the last thing to make popup upon clicking and for that I used “useState”, made an array holding information regarding each model passed the specific array index on respective card to display the description just when the card is clicked.
+
+
+
